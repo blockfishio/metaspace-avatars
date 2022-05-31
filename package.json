@@ -2,9 +2,9 @@
   "name": "metaspace-avatars",
   "license": "UNLICENSED",
   "scripts": {
-    "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ blockfishio/metaspace-avatars",
+    "codegen": "graph codegen --debug --output-dir src/entities/",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ blockfishio/metaspace-rinkeby",
     "create-local": "graph create --node http://localhost:8020/ blockfishio/metaspace-avatars",
     "remove-local": "graph remove --node http://localhost:8020/ blockfishio/metaspace-avatars",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blockfishio/metaspace-avatars"

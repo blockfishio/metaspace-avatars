@@ -1,6 +1,59 @@
-type ExampleEntity @entity {
+type NFT @entity {
   id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+  tokenId: BigInt!
+  contractAddress: Bytes!
+  owner: Account!
+  tokenURI: String
+
+  orders: [Order!]  # History of all orders. Should only ever be ONE open order. all others must be cancelled or sold
+
+  name: String
+  image: String
+  thumbnail:String
+
+  createdAt: BigInt!
+  updatedAt: BigInt!
+
+  # search indexes
+  searchOrderStatus: OrderStatus
+  searchOrderPrice: BigInt
+  searchOrderExpiresAt: BigInt
+  searchOrderCreatedAt: BigInt
+
+  searchText: String
+ 
+
+ 
 }
+
+
+
+type Account @entity {
+  id: ID! # ETH addr
+  address: Bytes!
+  nfts: [NFT!] @derivedFrom(field: "owner")
+}
+
+type Order @entity {
+  id: ID!
+  nfts: [NFT!]
+  nftAddress: Bytes!
+  paymentToken: Bytes!
+  tokenIds: [BigInt!]
+  txHash: Bytes!
+  owner: Bytes!
+  buyer: Bytes
+  price: BigInt!
+  status: OrderStatus!
+  blockNumber: BigInt!
+  createdAt: BigInt!
+  updatedAt: BigInt!
+}
+
+enum OrderStatus @entity {
+  sold
+  cancelled
+}
+
+
+
