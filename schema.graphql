@@ -27,11 +27,27 @@ type NFT @entity {
 }
 
 
+type Avatar @entity {
+  id: ID!
+  tokenId: BigInt!
+  contractAddress: Bytes!
+  owner: Account!
+  tokenURI: String
+
+  name: String
+  image: String
+
+  createdAt: BigInt!
+  updatedAt: BigInt!
+ 
+}
+
 
 type Account @entity {
   id: ID! # ETH addr
   address: Bytes!
   nfts: [NFT!] @derivedFrom(field: "owner")
+  avatars:[Avatar!] @derivedFrom(field: "owner")
 }
 
 type Order @entity {

@@ -14,3 +14,6 @@ export const Asset = '0x46741b56c57b6c2470e9ead3cd6ee13bb2a4fe7b'
 
 //rinkeby
 // export const Asset = '0xe88A806D31de758762d93a0e6682042Ec1AFe6ac'
+
+// avatars
+export const Azuki='0xd4B37999Fa12A91d0Dbb23e3678AFE478D142368'

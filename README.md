@@ -49,4 +49,15 @@ Category could be: `parcel`, `estate`, `ens`, `wearable`
     buyer
 }
 ```
+#### Get first 5 account with avatars
+```typescript
+accounts(first:5){
+    id
+    avatars{
+      id
+      tokenURI
+    }
+  }
+```
+
 
